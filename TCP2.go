@@ -34,5 +34,5 @@ func Echo(c net.Conn) {
 		fmt.Printf("Failure to write: %s\n", err.Error())
 		return	
 	}
-	  //Closes the TCP connection so you dont abuse it, defer is called when the function returns.
+	 defer c.Close() //Closes the TCP connection so you dont abuse it, defer is called when the function returns.
 }
