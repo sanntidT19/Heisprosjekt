@@ -18,7 +18,10 @@ func main() {
 	if err != nil {
      	    fmt.Printf("unable to write to server, code red: %s\n", err.Error())
 	}
-for {Echo(c)}
+for {
+Echo(c)
+}
+c.Close()
 }
 
 func Echo(c net.Conn) {
@@ -34,5 +37,5 @@ func Echo(c net.Conn) {
 		fmt.Printf("Failure to write: %s\n", err.Error())
 		return	
 	}
-	 defer c.Close() //Closes the TCP connection so you dont abuse it, defer is called when the function returns.
+	// defer c.Close() //Closes the TCP connection so you dont abuse it, defer is called when the function returns.
 }
